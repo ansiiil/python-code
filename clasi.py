@@ -1,5 +1,5 @@
 class calculation:
-    def data(self,a,b):
+    def data(self):
         self.a=a
         self.b=b
     def sum(self):
@@ -20,3 +20,4 @@ x.sum()
 x.mul()
 x.div()
 x.sub()
+
