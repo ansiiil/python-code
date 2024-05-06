@@ -1,24 +1,65 @@
-name=["ansil","jibin","farih"]
-select=int(input("select a number(1 add,2 select,3 edit,4 dlt)"))
-if select==1:
-    n=input("enter a name:")
-    name.append(n)
-    print(name)
-elif select==2:
-    n=input("enter a selected name:")
-    data=name.index(n)
-    print("your selected name:",name[data])
-elif select==3:
-    n=input("enter a name:")
-    m=input("enter raplacing name:")
-    data=name.index(n)
-    name[data]=m
-    print(name)
-elif select==4:
-    n=input("enter the deleting name:")
-    data=name.index(n)
-    del name[data]
-    print(name)
-else :
-    print("invalid data:")
+def add():
+    file=open("data.txt","a")
+    select=int(input("select a number(1 Add, 2 Select, 3 Edit, 4 Delete)"))
+    if select==1:
+        n=input("enter a name:")
+        file.write(n+"\n")
+        print(n+" Added successfully")
+        file.close()
+        add()
+    elif select==2:
+        file1=open("data.txt","r")
+        content=file1.read()
+        n=input("enter a selected name: ")
+        if n in content:
+            print("Your Selected :"+n)
+        else:
+            print("Name not found")
+        file.write(n+"\n")
+        print(n+" selected succesfully")        
+        add()
+    elif select==4:
+        file1=open("data.txt","r")
+        content=file1.read()   
+        name=input("enter a name:")
+        if name in content:
+            li=list(content.split("\n"))
+            data=li.index(name)
+            del li[data]
+            str1="\n"    
+            newdata=str1.join(li)
+            file1=open("data.txt","w")
+            file1.write(newdata) 
+            print(name + " Deleted succesfully")
+            file.close()
+            add()
+        else:
+            print("No")
+            file.close()
+            add()
+    elif select==3:
+        file1=open("data.txt","r")
+        content=file1.read()   
+        name=input("enter a name:")
+        name2=input("Enter the replacing name:")
+        if name in content:           
+            li=list(content.split("\n"))
+            data=li.index(name)
+            li[data]=name2
+            str1="\n"    
+            newdata=str1.join(li)
+            file1=open("data.txt","w")
+            file1.write(newdata) 
+            print(name + " Replaced Succefully")
+            file1.close()
+            add()
+        else:
+            print("Name Is Unavailable")
+            add()
+    else:
+        print("Invalid Option")
+add()
+
     
+
+

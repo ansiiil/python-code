@@ -1,4 +1,1 @@
-sum:250
-sub:150
-mul:10000
-div:4
+ansil
