@@ -4,5 +4,5 @@ class Student:
     def phone(self):
         print("student phone:1234321")
 x=Student()
-x.name()
+x.name()   
 x.phone()
