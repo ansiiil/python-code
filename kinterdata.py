@@ -19,7 +19,7 @@ def delete():
   cur.execute("delete from maam where name='%s'"%(n))
   conn.commit()
   print("deleted sucessfully")
-def select():  
+def select():   
   n=e1.get()
   if n=="":
     message.showinfo("select data","please select from name fields")
@@ -32,6 +32,7 @@ def update():
   n=e1.get()
   if n=="":
     message.showinfo("update data","please select from fields")
+
   
   
   
